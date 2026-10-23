@@ -10,6 +10,7 @@ class MovieListPage extends StatelessWidget {
       'judul': 'Avatar 3',
       'genre': 'Sci-Fi, Adventure',
       'rating': '8.5',
+      'poster': 'assets/posters/avatar3.jpeg',
       'sinopsis':
           'Jake Sully dan Neytiri kembali menjelajahi Pandora dan bertemu suku Na\'vi baru '
           'yang menguasai api, sambil melindungi keluarga mereka dari ancaman manusia.',
@@ -18,6 +19,7 @@ class MovieListPage extends StatelessWidget {
       'judul': 'Spider-Man',
       'genre': 'Action, Superhero',
       'rating': '8.2',
+      'poster': 'assets/posters/spiderman.jpeg',
       'sinopsis':
           'Peter Parker berusaha menyeimbangkan kehidupan sekolah dan tugasnya sebagai '
           'Spider-Man saat penjahat baru mulai mengancam kota New York.',
@@ -26,6 +28,7 @@ class MovieListPage extends StatelessWidget {
       'judul': 'Inception',
       'genre': 'Sci-Fi, Thriller',
       'rating': '8.8',
+      'poster': 'assets/posters/inception.jpeg',
       'sinopsis':
           'Dom Cobb, pencuri yang bisa masuk ke dalam mimpi orang lain, mendapat misi '
           'terakhir: menanamkan sebuah ide ke pikiran target lewat mimpi berlapis.',
@@ -34,6 +37,7 @@ class MovieListPage extends StatelessWidget {
       'judul': 'Resident Evil',
       'genre': 'Horror, Action',
       'rating': '7.4',
+      'poster': 'assets/posters/resident_evil.jpg',
       'sinopsis':
           'Sekelompok orang terjebak di fasilitas rahasia Umbrella Corporation dan harus '
           'bertahan hidup dari serangan zombie hasil virus buatan.',
@@ -59,6 +63,7 @@ class MovieListPage extends StatelessWidget {
                   genre: movie['genre']!,
                   sinopsis: movie['sinopsis']!,
                   rating: movie['rating']!,
+                  poster: movie['poster']!,
                 ),
               ),
             );
@@ -68,14 +73,14 @@ class MovieListPage extends StatelessWidget {
               padding: const EdgeInsets.all(12),
               child: Row(
                 children: [
-                  Container(
-                    width: 70,
-                    height: 100,
-                    decoration: BoxDecoration(
-                      color: Colors.red.shade900,
-                      borderRadius: BorderRadius.circular(8),
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(8),
+                    child: Image.asset(
+                      movie['poster']!,
+                      width: 70,
+                      height: 100,
+                      fit: BoxFit.cover,
                     ),
-                    child: const Icon(Icons.movie, size: 36),
                   ),
                   const SizedBox(width: 12),
                   Expanded(

@@ -5,6 +5,7 @@ class DetailMoviePage extends StatelessWidget {
   final String genre;
   final String sinopsis;
   final String rating;
+  final String poster;
 
   const DetailMoviePage({
     super.key,
@@ -12,6 +13,7 @@ class DetailMoviePage extends StatelessWidget {
     required this.genre,
     required this.sinopsis,
     required this.rating,
+    required this.poster,
   });
 
   @override
@@ -23,14 +25,11 @@ class DetailMoviePage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              height: 200,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                color: Colors.red.shade900,
+            Center(
+              child: ClipRRect(
                 borderRadius: BorderRadius.circular(12),
+                child: Image.asset(poster, height: 300),
               ),
-              child: const Icon(Icons.movie, size: 80),
             ),
             const SizedBox(height: 16),
             Text(judul, style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),

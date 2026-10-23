@@ -16,6 +16,8 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('Sinopsis'), findsOneWidget);
     expect(find.text('Genre: Sci-Fi, Thriller'), findsOneWidget);
+    await tester.ensureVisible(find.text('Kembali'));
+    await tester.pumpAndSettle();
     await tester.tap(find.text('Kembali'));
     await tester.pumpAndSettle();
 
