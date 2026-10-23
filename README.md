@@ -1,4 +1,4 @@
-# 🎬 CinePlay Mobile App
+# CinePlay Mobile App
 
 Tugas Praktikum Flutter — Konsentrasi Keahlian RPL (Mobile Programming)
 
@@ -6,13 +6,12 @@ Tugas Praktikum Flutter — Konsentrasi Keahlian RPL (Mobile Programming)
 |---|---|
 | **Nama** | Apip |
 | **Kelas** | XI RPL |
-| **Tema** | Hiburan & Bioskop |
 
-## 📱 Deskripsi
+## Deskripsi
 
 CinePlay adalah prototipe aplikasi informasi film dan pemesanan tiket bioskop. Aplikasi ini dibuat untuk mempraktikkan navigasi di Flutter: named routes, BottomNavigationBar, passing data, return value, dan reset stack.
 
-## ✨ Fitur
+## Fitur
 
 1. **Login** — halaman awal dengan tombol *Masuk*.
 2. **Halaman Utama** — 3 tab navigasi bawah: Film, Jadwal, dan Profile.
@@ -21,7 +20,7 @@ CinePlay adalah prototipe aplikasi informasi film dan pemesanan tiket bioskop. A
 5. **Jadwal Bioskop** — pilihan studio (Studio Regular, Studio IMAX 3D, Velvet VIP). Setiap studio menampilkan jadwal tayangnya, dan jadwal yang dipilih dikirim balik ke halaman sebelumnya.
 6. **Profile** — foto, nama, riwayat pemesanan tiket, dan tombol *Logout*.
 
-## 🧭 Konsep Navigasi yang Digunakan
+## Konsep Navigasi yang Digunakan
 
 | Konsep | Implementasi |
 |---|---|
@@ -47,7 +46,7 @@ lib/
     └── profile_page.dart
 ```
 
-## ▶️ Cara Menjalankan
+## Cara Menjalankan
 
 ```bash
 git clone https://github.com/ghaisanSnoze/CinePlay-MobileApp.git
