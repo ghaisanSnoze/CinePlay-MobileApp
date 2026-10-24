@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../data/riwayat_pemesanan.dart';
 import 'detail_jadwal_page.dart';
 
 class JadwalBioskopPage extends StatelessWidget {
@@ -13,14 +14,20 @@ class JadwalBioskopPage extends StatelessWidget {
 
   Future<void> _bukaJadwal(BuildContext context, String studio) async {
     // await: tunggu DetailJadwalPage ditutup, lalu ambil jadwal yang dipilih
-    final String? jadwalDipilih = await Navigator.push(
+    final Map<String, String>? jadwalDipilih = await Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => DetailJadwalPage(studio: studio)),
     );
 
     if (jadwalDipilih != null && context.mounted) {
+      final film = jadwalDipilih['film']!;
+      final jam = jadwalDipilih['jam']!;
+
+      // Tambahkan ke riwayat (paling atas = paling baru)
+      riwayatPemesanan.insert(0, {'film': film, 'studio': studio, 'waktu': 'Hari ini, $jam'});
+
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Tiket dipesan: $jadwalDipilih di $studio')),
+        SnackBar(content: Text('Tiket dipesan: $film ($jam) di $studio')),
       );
     }
   }

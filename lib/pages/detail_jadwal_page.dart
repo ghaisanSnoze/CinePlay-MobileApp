@@ -43,7 +43,7 @@ class DetailJadwalPage extends StatelessWidget {
               subtitle: Text('Jam ${item['jam']}'),
               trailing: const Text('Pilih'),
               // Kirim balik jadwal yang dipilih ke JadwalBioskopPage
-              onTap: () => Navigator.pop(context, '${item['film']} (${item['jam']})'),
+              onTap: () => Navigator.pop(context, item),
             ),
           );
         },

@@ -33,13 +33,23 @@ void main() {
     await tester.pump(const Duration(seconds: 5)); // tunggu SnackBar hilang
     await tester.pumpAndSettle();
 
-    // Tab Profile -> Logout -> balik ke Login, stack kosong
+    // Tab Profile -> tiket barusan masuk riwayat
     await tester.tap(find.text('Profile').last);
     await tester.pumpAndSettle();
+    expect(find.text('Studio IMAX 3D • Hari ini, 16:00'), findsOneWidget);
+
+    // Logout -> balik ke Login, stack kosong
     await tester.scrollUntilVisible(find.text('Logout'), 200);
     await tester.tap(find.text('Logout'));
     await tester.pumpAndSettle();
     expect(find.text('Masuk'), findsOneWidget);
     expect(find.text('Film Tayang'), findsNothing);
+
+    // Login lagi -> riwayat pemesanan sudah terhapus
+    await tester.tap(find.text('Masuk'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Profile').last);
+    await tester.pumpAndSettle();
+    expect(find.text('Belum ada riwayat pemesanan.'), findsOneWidget);
   });
 }
